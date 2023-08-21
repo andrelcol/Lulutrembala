@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Previsão do Campeonato</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+  }
+  .container {
+    text-align: center;
+  }
+  #yesButton {
+    margin-right: 20px;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>O Glorioso vai ser campeão?</h1>
+  <button id="yesButton">Sim</button>
+  <button id="noButton">Não</button>
+</div>
+<script>
+  const yesButton = document.getElementById('yesButton');
+  const noButton = document.getElementById('noButton');
+  const container = document.querySelector('.container');
+
+  yesButton.addEventListener('click', () => {
+    const randomPositionX = Math.random() * (window.innerWidth - 100);
+    const randomPositionY = Math.random() * (window.innerHeight - 50);
+    yesButton.style.position = 'absolute';
+    yesButton.style.left = randomPositionX + 'px';
+    yesButton.style.top = randomPositionY + 'px';
+  });
+</script>
+</body>
+</html>
