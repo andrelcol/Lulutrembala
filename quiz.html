@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Qual Divertidamente Você É?</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+  }
+  .container {
+    text-align: center;
+  }
+  .question {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+  }
+  .answer {
+    margin-right: 10px;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>Qual Divertidamente você é?</h1>
+  <div class="question">1. Qual é a sua cor favorita?</div>
+  <button class="answer" onclick="nextQuestion('Alegria')">Amarelo</button>
+  <button class="answer" onclick="nextQuestion('Raiva')">Vermelho</button>
+  <div id="result" style="display: none;"></div>
+</div>
+<script>
+  let currentQuestion = 2;
+  let personality = "";
+
+  function nextQuestion(emotion) {
+    if (currentQuestion <= 7) {
+      switch (currentQuestion) {
+        case 2:
+          personality += " " + emotion;
+          document.querySelector('.question').textContent = "2. Qual é a sua comida favorita?";
+          break;
+        case 3:
+          personality += " " + emotion;
+          document.querySelector('.question').textContent = "3. O que você gosta de fazer no seu tempo livre?";
+          break;
+        case 4:
+          personality += " " + emotion;
+          document.querySelector('.question').textContent = "4. Qual é o seu maior medo?";
+          break;
+        case 5:
+          personality += " " + emotion;
+          document.querySelector('.question').textContent = "5. Qual é o seu sonho?";
+          break;
+        case 6:
+          personality += " " + emotion;
+          document.querySelector('.question').textContent = "6. Qual é a sua música favorita?";
+          break;
+        case 7:
+          personality += " " + emotion;
+          document.querySelector('.question').style.display = "none";
+          document.querySelectorAll('.answer').forEach(button => button.style.display = "none");
+          document.querySelector('#result').style.display = "block";
+          document.querySelector('#result').textContent = `Você é perfeita demais pra ter só 1 deles como personalidade:${personality}`;
+          break;
+      }
+      currentQuestion++;
+    }
+  }
+</script>
+</body>
+</html>
