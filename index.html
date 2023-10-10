@@ -1,44 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Previsão do Campeonato</title>
-<style>
-  body {
-    font-family: Arial, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-  }
-  .container {
-    text-align: center;
-  }
-  #yesButton {
-    margin-right: 20px;
-  }
-</style>
-</head>
-<body>
-<div class="container">
-  <h1>O Glorioso vai ser campeão?</h1>
-  <button id="yesButton">Sim</button>
-  <button id="noButton">Não</button>
-</div>
-<script>
-  const yesButton = document.getElementById('yesButton');
-  const noButton = document.getElementById('noButton');
-  const container = document.querySelector('.container');
 
-  yesButton.addEventListener('click', () => {
-    const randomPositionX = Math.random() * (window.innerWidth - 100);
-    const randomPositionY = Math.random() * (window.innerHeight - 50);
-    yesButton.style.position = 'absolute';
-    yesButton.style.left = randomPositionX + 'px';
-    yesButton.style.top = randomPositionY + 'px';
-  });
-</script>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Previsão do Campeonato</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            text-align: center;
+        }
+
+        #yesButton {
+            margin-right: 20px;
+        }
+
+        /* Estilos para o iframe do YouTube */
+        #youtubeVideo {
+            display: none;
+            width: 560px;
+            height: 315px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>O Glorioso vai ser campeão?</h1>
+        <button id="yesButton">Sim</button>
+        <button id="noButton">Não</button>
+        <!-- Iframe do YouTube -->
+        <iframe id="youtubeVideo" src="https://www.youtube.com/embed/OCy4LQnoCpQ?autoplay=1" allow="autoplay"
+            frameborder="0"></iframe>
+    </div>
+    <script>
+        const yesButton = document.getElementById('yesButton');
+        const noButton = document.getElementById('noButton');
+        const youtubeVideo = document.getElementById('youtubeVideo');
+
+        yesButton.addEventListener('click', () => {
+            const randomPositionX = Math.random() * (window.innerWidth - 100);
+            const randomPositionY = Math.random() * (window.innerHeight - 50);
+            yesButton.style.position = 'absolute';
+            yesButton.style.left = randomPositionX + 'px';
+            yesButton.style.top = randomPositionY + 'px';
+        });
+
+        noButton.addEventListener('click', () => {
+            youtubeVideo.style.display = 'block'; // Mostra o vídeo
+        });
+    </script>
 </body>
+
 </html>
