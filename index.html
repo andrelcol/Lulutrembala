@@ -48,7 +48,7 @@
         const audioTeste = document.getElementById('audioTeste');
         const message = document.getElementById('message');
 
-        yesButton.addEventListener('click', () => {
+        yesButton.addEventListener('mouseover', () => {
             const randomPositionX = Math.random() * (window.innerWidth - 100);
             const randomPositionY = Math.random() * (window.innerHeight - 50);
             yesButton.style.position = 'absolute';
@@ -56,7 +56,7 @@
             yesButton.style.top = randomPositionY + 'px';
         });
 
-        noButton.addEventListener('click', () => {
+        noButton.addEventListener('mouseover', () => {
             audioTeste.play(); // Reproduz o áudio
             message.style.display = 'block'; // Mostra a mensagem
         });
